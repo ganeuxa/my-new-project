@@ -40,7 +40,7 @@ form?.addEventListener('submit', (e) => {
     // Подсветка ошибок через ARIA
     [...form.elements].forEach(el => {
         if (el.willValidate) {
-        el.toggleAttribute('aria-invalid', !el.checkValidity());
+            el.toggleAttribute('aria-invalid', !el.checkValidity());
         }
     });
 
