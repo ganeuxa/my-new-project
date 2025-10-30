@@ -1,0 +1,290 @@
+:root {
+    /* Цвета */
+    --color-bg: #fff;
+    --color-fg: #0b0b0b;
+    --color-muted: #666;
+    --color-primary: #0a84ff;
+    --color-danger: #b00020;
+
+    /* Типографика */
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+    /* Отступы (ритм) */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 40px;
+
+    /* Скругления и тени */
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.08);
+}
+
+/* БАЗА: читаемость и предсказуемость размеров */
+* {box-sizing: border-box;}
+
+html,body {margin: 0;padding: 0;}
+
+body { 
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Подсветка целевого элемента */
+:target {
+    outline: 2px dashed var(--color-primary);
+    outline-offset: 4px;
+}
+
+/* === 2. ШАПКА И НАВИГАЦИЯ (БЭМ) === */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg);
+    border-bottom: 1px solid #eee;
+}
+
+.site-header__brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.site-nav__list {
+    display: flex;
+    gap: var(--space-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav__link {
+    color: var(--color-fg);
+    text-decoration: none;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+    background: rgba(10, 132, 255, 0.1);
+    outline: none;
+}
+
+/* Активный пункт (опционально) */
+.site-nav__link[href="#current-page"] {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* === 3. ХЛЕБНЫЕ КРОШКИ === */
+.breadcrumbs {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.breadcrumbs__link {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.breadcrumbs__link:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs__current {
+    color: var(--color-fg);
+    font-weight: 500;
+}
+
+/* === 4. ФОРМА И МОДАЛКА (БЭМ) === */
+.modal {
+    padding: var(--space-4);
+    border: none;
+    border-radius: var(--radius);
+    background: var(--color-bg);
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__title {
+    margin: 0 0 var(--space-3);
+    color: var(--color-fg);
+}
+
+.form__group {
+    margin-bottom: var(--space-3);
+}
+
+.form__label {
+    display: block;
+    margin: 0 0 var(--space-2);
+    font-weight: 500;
+}
+
+.form__input,
+.form__textarea {
+    width: 100%;
+    max-width: 480px;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid #c8c8c8;
+    border-radius: var(--radius);
+    background: #fff;
+    font: inherit;
+    color: inherit;
+}
+
+.form__input:focus-visible,
+.form__textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.form__input[aria-invalid="true"],
+.form__textarea[aria-invalid="true"] {
+    border-color: var(--color-danger);
+}
+
+.form__help {
+    display: block;
+    margin-top: var(--space-1);
+    font-size: 0.875rem;
+    color: var(--color-muted);
+}
+
+.form__actions {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.form__btn {
+    padding: var(--space-2) var(--space-3);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font: inherit;
+}
+
+.form__btn--cancel {
+    background: #ccc;
+    color: #333;
+}
+
+.form__btn--cancel:hover {
+    background: #bbb;
+}
+
+.form__btn--submit {
+    background: var(--color-primary);
+    color: white;
+}
+
+.form__btn--submit:hover {
+    filter: brightness(0.95);
+}
+
+/* Формы: размеры, отступы, визуальный порядок */
+label {
+    display: block;
+    margin: var(--space-3) 0 var(--space-2);
+}
+
+input,select,textarea,button {
+    width: 100%;
+    max-width: 480px;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid #c8c8c8;
+    border-radius: 8px;
+    background: #fff;
+}
+
+/* === 5. ГЕРОИНСКАЯ СЕКЦИЯ С ФОН-ИЗОБРАЖЕНИЕМ === */
+.BlackGuy {
+    background: 
+        linear-gradient(to top, rgba(14, 160, 204, 0.55), rgba(0,0,0,.15)),
+        url("C:/Users/genas/Downloads/ddf4bea6021462282d95375c7281bfd5.jpg") center/cover no-repeat;
+    color: rgb(255, 255, 255);
+    padding: clamp(2rem, 6vw, 6rem) 1rem;
+    text-align: center;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-5);
+}
+
+/* === 6. ВИДЕО === */
+.media {
+    aspect-ratio: 16 / 9;
+    width: min(100%, 960px);
+    margin-inline: auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.media iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+
+/* Кнопка по умолчанию */
+button, [type="submit"] {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Состояния: клавиатура/мышь/ошибки */
+:where(input, select, textarea, button):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+button:hover {
+    filter: brightness(0.95);
+}
+
+:disabled, [aria-disabled="true"] {
+    opacity: 0.6; 
+    cursor: not-allowed;
+}
+
+/* Подсветка ошибочных полей */
+.form_input[aria-invalid="true"],
+.form__textarea[aria-invalid="true"],
+.form__select[aria-invalid="true"]{
+    border-color: var(--color-danger);
+}
+
+/* Стили для <dialog> */
+dialog {
+    padding: var(--space-4);
+    border: none;
+    border-radius: var(--radius);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+}

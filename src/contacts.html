@@ -7,7 +7,7 @@
     <title>Наши контакты</title>
     <meta name="description" content="По любым вопросам можете связаться с нами">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
     <script src="main.js" defer></script>
     <meta property="og:type" content="website">
     <meta property="og:title" content="Заголовок страницы">
@@ -17,27 +17,26 @@
 
 <body>
     <!-- Шапка сайта -->
-    <header>
-        <a href="/">Логотип или название сайта</a>
-        <!-- Главное меню навигации -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+    <header class="site-header">
+        <a class="site-header__brand" href="index.html">BigDickBoyMadeThisShit</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
     </header>
     <!-- Уникальное основное содержимое страницы -->
     <main>
         <!-- Простые "хлебные крошки" -->
-        <nav aria-label="Хлебные крошки">
-            <a href="index.html">Главная</a> →
-            <span>Контакты</span>
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a class="breadcrumbs__link" href="index.html">Главная</a> →
+            <span class="breadcrumbs__current">О нас</span>
         </nav>
         <h1>Представители нашей компании</h1>
         <section>
-            <h2>Круглолизов Елдамир Онанитович</h2>
+            <h3>Круглолизов Елдамир Онанитович</h3>
             <p>Телефон - 8(800)-555-35-35</p>
         </section>
         <section>
